@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Primeiro Projeto Docker - Aprendizado DIO</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f7f6;
+            color: #333;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-top: 30px;
+        }
+        h1 {
+            text-align: center;
+            color: #3498db;
+            font-size: 2.5em;
+            margin-bottom: 40px;
+        }
+        h2 {
+            font-size: 1.8em;
+            color: #2980b9;
+        }
+        h3 {
+            font-size: 1.4em;
+            color: #1a5276;
+            border-bottom: 1px dashed #cccccc;
+            padding-bottom: 5px;
+            margin-top: 20px;
+        }
+        p {
+            margin-bottom: 10px;
+            text-align: justify;
+        }
+        ul {
+            list-style-type: disc;
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            color: #777;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🐳 Meu Primeiro Projeto Docker na DIO 🚀</h1>
+        <p>Este é o meu projeto para demonstrar os conhecimentos adquiridos no curso de Docker da DIO, focado em containerização de aplicações.</p>
+
+        <h2>1. Introdução ao Docker</h2>
+        
+        <h3>a) Conhecendo e Instalando o Docker</h3>
+        <p>Aprendi que Docker é uma plataforma para desenvolver, enviar e executar aplicações dentro de ambientes isolados chamados **contêineres**. A instalação envolveu configurar o Docker Desktop no Windows ou o Engine no Linux, que inclui o daemon, CLI e outras ferramentas essenciais. É a base para um fluxo de trabalho de desenvolvimento moderno e consistente.</p>
+
+        <h3>b) Primeiros Passos com o Docker</h3>
+        <p>Familiarização com comandos básicos como <code>docker pull</code> (para baixar imagens), <code>docker run</code> (para criar e iniciar contêineres), <code>docker ps</code> (para listar contêineres em execução) e <code>docker stop</code>/<code>docker rm</code> (para gerenciar o ciclo de vida dos contêineres). Entendi a diferença crucial entre **Imagem** (o molde imutável) e **Contêiner** (a instância em execução).</p>
+        
+        <h3>c) Armazenamento de Dados com Docker</h3>
+        <p>A persistência de dados é crucial. Explorei dois métodos principais:</p>
+        <ul>
+            <li>**Volumes Nomeados (Named Volumes):** Gerenciados pelo Docker, são ideais para dados de banco de dados e persistência geral em produção. São mais portáveis e performáticos.</li>
+            <li>**Bind Mounts:** Mapeiam um diretório do host diretamente para o contêiner, excelente para desenvolvimento (sincronização de código em tempo real) e configurações.</li>
+        </ul>
+
+        <h3>d) Processamento, Logs e Rede com Docker</h3>
+        <p>Compreendi como os contêineres isolam processos, como acessar logs com <code>docker logs</code> e a importância das redes Docker. As redes (`bridge`, `host`, `overlay`) permitem que contêineres se comuniquem entre si e com o mundo exterior. O mapeamento de portas (`-p`) é fundamental para expor serviços do contêiner para o host.</p>
+
+        <h2>2. Dockerfile e Docker Compose</h2>
+
+        <h3>a) Definição e Criação de um Dockerfile</h3>
+        <p>O **Dockerfile** é o coração da construção de imagens. Ele é um arquivo de texto com instruções para montar uma imagem Docker. Aprendi comandos essenciais como:</p>
+        <ul>
+            <li><code>FROM</code>: Imagem base.</li>
+            <li><code>RUN</code>: Executa comandos durante o build.</li>
+            <li><code>COPY</code>: Copia arquivos do host para a imagem.</li>
+            <li><code>WORKDIR</code>: Define o diretório de trabalho.</li>
+            <li>**Dockerfile Multistage**: Técnica crucial para criar imagens finais menores e mais seguras, separando o ambiente de build (compilação) do ambiente de runtime (execução).</li>
+        </ul>
+
+        <h3>b) Trabalhando com Docker Compose</h3>
+        <p>O **Docker Compose** é uma ferramenta para definir e executar aplicações Docker multi-contêineres. Com um único arquivo <code>docker-compose.yml</code> (sem a necessidade da linha `version: '3.x'` no modelo V2), posso configurar serviços, redes e volumes de forma declarativa. Comandos como <code>docker compose up</code> e <code>docker compose down</code> simplificam o ciclo de vida completo da aplicação.</p>
+
+        <h3>c) Criação do meu projeto (aplicação Web)</h3>
+        <p>Este projeto é a prova prática, utilizando um **Dockerfile** para a aplicação web (hospedando este HTML via Apache) e um arquivo **<code>docker-compose.yml</code>** para orquestrar o servidor web junto com serviços de persistência (como um banco de dados MySQL), demonstrando a integração de múltiplos contêineres em uma rede virtual.</p>
+
+        <footer>
+            <p>Desenvolvido por Paulo Mello como parte do curso Docker da DIO</p>
+            <p>Data: 20/10/2025</p>
+        </footer>
+    </div>
+</body>
+</html>
